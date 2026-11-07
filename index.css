@@ -1,0 +1,237 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------ */
+/* Base                                                                */
+/* ------------------------------------------------------------------ */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-ivory font-sans text-charcoal antialiased;
+    overflow-x: hidden;
+    overflow-x: clip;
+  }
+  h1, h2, h3, h4 {
+    @apply font-serif font-normal;
+    font-feature-settings: 'liga', 'dlig';
+  }
+  img {
+    display: block;
+    max-width: 100%;
+  }
+  ::selection {
+    background: #687052;
+    color: #f5f1e8;
+  }
+  :focus-visible {
+    outline: 2px solid #687052;
+    outline-offset: 3px;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Components                                                          */
+/* ------------------------------------------------------------------ */
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-site px-5 sm:px-8 lg:px-12;
+  }
+
+  /* Section rhythm */
+  .section-y {
+    @apply py-24 sm:py-28 lg:py-36;
+  }
+
+  /* Type scale (Cormorant needs to sit large; it reads small at the same px as a sans) */
+  .type-display {
+    @apply font-serif font-light leading-[0.92] tracking-[-0.015em];
+  }
+  .type-h2 {
+    @apply font-serif font-light leading-[0.98] tracking-[-0.01em];
+    font-size: clamp(2.6rem, 5.4vw, 5.25rem);
+  }
+  .type-h3 {
+    @apply font-serif font-normal leading-[1.02];
+    font-size: clamp(1.85rem, 2.6vw, 2.6rem);
+  }
+  .type-lead {
+    @apply text-[15px] leading-[1.7] text-ink sm:text-base;
+  }
+  .type-meta {
+    @apply text-[13px] leading-snug text-stone-warm;
+  }
+
+  /* Buttons — rectangular, quiet, with a fill that answers the pointer */
+  .btn {
+    @apply relative inline-flex items-center justify-center gap-3 overflow-hidden px-7 py-[15px]
+      text-[14px] font-medium tracking-[0.01em] transition-colors duration-500 ease-out-expo;
+    isolation: isolate;
+  }
+  .btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .btn:hover::before,
+  .btn:focus-visible::before {
+    transform: scaleY(1);
+  }
+  .btn-dark {
+    @apply bg-charcoal text-ivory;
+  }
+  .btn-dark::before {
+    @apply bg-olive-dark;
+  }
+  .btn-light {
+    @apply bg-ivory text-charcoal;
+  }
+  .btn-light::before {
+    @apply bg-white;
+  }
+  .btn-outline {
+    @apply border border-charcoal/80 text-charcoal hover:text-ivory;
+  }
+  .btn-outline::before {
+    @apply bg-charcoal;
+  }
+  .btn-ghost-light {
+    @apply border border-ivory/60 text-ivory hover:text-charcoal;
+  }
+  .btn-ghost-light::before {
+    @apply bg-ivory;
+  }
+
+  /* Animated underline for text links */
+  .link-line {
+    position: relative;
+    display: inline-block;
+  }
+  .link-line::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -3px;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .link-line:hover::after,
+  .link-line:focus-visible::after,
+  .link-line[aria-current='true']::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  /* Always-underlined link whose line redraws on hover */
+  .link-solid {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 100% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    padding-bottom: 3px;
+    transition: background-size 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .link-solid:hover {
+    background-size: 0% 1px;
+    background-position: 100% 100%;
+  }
+
+  .icon-btn {
+    @apply inline-flex h-11 w-11 items-center justify-center transition-colors duration-300;
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Form fields */
+  .field {
+    @apply w-full border-0 border-b border-charcoal/25 bg-transparent px-0 py-3 text-[15px]
+      text-charcoal placeholder:text-stone-warm/80 focus:border-charcoal focus:outline-none focus:ring-0;
+  }
+  .field[aria-invalid='true'] {
+    @apply border-[#9A3B2E];
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Hero: slow cinematic push-in on the active slide only.              */
+/* The reset on inactive slides is delayed until the crossfade ends.   */
+/* ------------------------------------------------------------------ */
+.hero-slide .hero-media {
+  transform: scale(1.02);
+  transition: transform 0s linear 1.5s;
+  will-change: transform;
+}
+.hero-slide.swiper-slide-active .hero-media {
+  transform: scale(1.14);
+  transition: transform 7.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* Room/gallery images: slow, soft zoom on hover */
+.zoom-img {
+  transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.group:hover .zoom-img,
+.group:focus-within .zoom-img {
+  transform: scale(1.06);
+}
+
+/* Featured showcase text stacking */
+.stack-grid {
+  display: grid;
+}
+.stack-grid > * {
+  grid-area: 1 / 1;
+}
+
+/* ------------------------------------------------------------------ */
+/* Reduced motion                                                      */
+/* ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .hero-slide .hero-media,
+  .hero-slide.swiper-slide-active .hero-media,
+  .group:hover .zoom-img {
+    transform: none !important;
+  }
+}
+
+/* Underlined link inside a hovered card */
+.group:hover .link-solid {
+  background-size: 0% 1px;
+  background-position: 100% 100%;
+}
+
+/* Hide the native clear button on search inputs (we provide our own close) */
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Cormorant defaults to old-style figures; use lining figures for counters and numbers */
+.font-serif,
+h1, h2, h3, h4 {
+  font-variant-numeric: lining-nums;
+}
