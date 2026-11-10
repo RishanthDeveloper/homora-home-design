@@ -10,7 +10,7 @@ const ease = [0.16, 1, 0.3, 1];
 const SUGGESTIONS = ['Japandi', 'Kitchen', 'Luxury bathroom', 'Minimalist', 'Oak', 'Industrial'];
 
 const haystack = (d) =>
-  [d.title, d.room, d.style, d.description, d.studio, ...(d.materials || [])].join(' ').toLowerCase();
+  [d.title, d.room, d.style, d.description, ...(d.materials || [])].filter(Boolean).join(' ').toLowerCase();
 
 export function searchDesigns(query) {
   const terms = query.toLowerCase().trim().split(/\s+/).filter(Boolean);

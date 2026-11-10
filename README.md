@@ -33,9 +33,11 @@ src/
 - **Photos** come from Unsplash. Every photo id lives in `src/data/designs.js`;
   replace an id there to change an image anywhere on the site. If a photo fails to
   load, `SmartImage` falls back to a backup photo, then to a plain branded tile.
+  You can also use your own photos: place them in `public/images/` and reference
+  them as `"/images/filename.jpg"` (or any external `"https://..."` URL) in `designs.js`.
 - **Saved designs** are stored in `localStorage` under `homora:saved-designs`.
 - **Contact form** validates in the browser only; nothing is sent to a server.
-- **Testimonials** are fictional sample content and are labelled as such.
+- **Testimonials**: the section is omitted from the page, keeping the site real and personal.
 - **Reduced motion**: with `prefers-reduced-motion`, autoplay, pinning, parallax and
   scroll reveals are switched off and the showcase uses a stacked layout.
 - **Shortcuts**: `/` or `Ctrl/Cmd + K` opens search; `Esc` closes overlays.

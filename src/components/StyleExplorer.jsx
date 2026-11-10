@@ -105,8 +105,8 @@ export default function StyleExplorer({ onOpenDesign }) {
           </h2>
           <div className="md:col-span-5 md:justify-self-end">
             <p className="max-w-[42ch] text-[15px] leading-[1.7] text-ink">
-              Eight ways of living, each with its own materials and mood. Drag through the collection and choose a style
-              to see designs that speak it.
+              Eight distinct design aesthetics with their core color palettes. Scroll through the styles and filter
+              designs by the look you prefer.
             </p>
             <div className="mt-6 flex items-center gap-2">
               <button

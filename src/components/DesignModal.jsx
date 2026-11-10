@@ -102,10 +102,6 @@ export default function DesignModal({ design, onClose, onSelect }) {
                   <dt className="type-meta">Area</dt>
                   <dd className="mt-1">{design.area}</dd>
                 </div>
-                <div>
-                  <dt className="type-meta">Concept by</dt>
-                  <dd className="mt-1">{design.studio}</dd>
-                </div>
                 <div className="col-span-2">
                   <dt className="type-meta">Materials</dt>
                   <dd className="mt-1">{design.materials.join(', ')}</dd>
@@ -159,7 +155,7 @@ export default function DesignModal({ design, onClose, onSelect }) {
               )}
 
               <p className="type-meta mt-10 text-[12px]">
-                Sample design for inspiration. Studio names are fictional; photography via Unsplash.
+                Design inspiration showcase. Photography via Unsplash.
               </p>
             </div>
           </motion.div>

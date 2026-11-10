@@ -6,7 +6,6 @@ import FeaturedShowcase from '../components/FeaturedShowcase';
 import StyleExplorer from '../components/StyleExplorer';
 import InspirationGallery from '../components/InspirationGallery';
 import DesignProcess from '../components/DesignProcess';
-import Testimonials from '../components/Testimonials';
 import CallToAction from '../components/CallToAction';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
@@ -61,7 +60,6 @@ export default function Home() {
         <StyleExplorer onOpenDesign={openDesign} />
         <InspirationGallery filter={galleryFilter} onFilterChange={setGalleryFilter} onOpenDesign={openDesign} />
         <DesignProcess />
-        <Testimonials />
         <CallToAction />
         <Contact />
       </main>

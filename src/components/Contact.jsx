@@ -85,17 +85,13 @@ export default function Contact() {
             Start Your Design Journey
           </h2>
           <p className="type-lead mt-6 max-w-[40ch]">
-            Tell us about the room you are dreaming of. Share the space, the style that draws you in and how you want it
-            to feel.
+            Plan a room concept and test the interactive brief builder. Choose your room, pick a style and preview your
+            design notes.
           </p>
           <dl className="mt-12 grid gap-6 border-t border-charcoal/15 pt-8 text-[15px] sm:grid-cols-2 lg:grid-cols-1">
             <div>
-              <dt className="type-meta">Email</dt>
-              <dd className="mt-1">hello@homora.example</dd>
-            </div>
-            <div>
-              <dt className="type-meta">Studio hours</dt>
-              <dd className="mt-1">Monday to Friday, 9:00 to 18:00</dd>
+              <dt className="type-meta">Project</dt>
+              <dd className="mt-1">HOMORA Interior Inspiration</dd>
             </div>
             <div>
               <dt className="type-meta">Your saved designs</dt>

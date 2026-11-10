@@ -47,8 +47,8 @@ export default function InspirationGallery({ filter, onFilterChange, onOpenDesig
             Inspiration Gallery
           </h2>
           <p className="max-w-[42ch] text-[15px] leading-[1.7] text-ink md:col-span-5 md:justify-self-end">
-            A growing archive of real rooms. Save the ones that move you; they stay in this browser so you can return
-            to them whenever you plan.
+            A collection of interior concepts across rooms and styles. Save the designs you like to revisit them anytime
+            in this browser.
           </p>
         </div>
 

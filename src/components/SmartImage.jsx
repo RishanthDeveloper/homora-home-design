@@ -16,7 +16,8 @@ export default function SmartImage({
   priority = false,
   draggable,
 }) {
-  const sources = [photo, ...FALLBACK_PHOTOS.filter((p) => p !== photo)];
+  const isDirect = typeof photo === 'string' && (photo.startsWith('/') || photo.startsWith('http'));
+  const sources = isDirect ? [photo] : [photo, ...FALLBACK_PHOTOS.filter((p) => p !== photo)];
   const [attempt, setAttempt] = useState(0);
   const [loaded, setLoaded] = useState(false);
 
@@ -24,6 +25,24 @@ export default function SmartImage({
     setAttempt(0);
     setLoaded(false);
   }, [photo]);
+
+  if (isDirect) {
+    return (
+      <img
+        src={photo}
+        alt={alt}
+        sizes={sizes}
+        loading={priority ? 'eager' : 'lazy'}
+        decoding="async"
+        draggable={draggable}
+        {...(priority ? { fetchpriority: 'high' } : {})}
+        onLoad={() => setLoaded(true)}
+        className={`${className} bg-linen object-cover transition-opacity duration-700 ${
+          loaded ? 'opacity-100' : 'opacity-0'
+        }`}
+      />
+    );
+  }
 
   if (attempt >= sources.length) {
     return (

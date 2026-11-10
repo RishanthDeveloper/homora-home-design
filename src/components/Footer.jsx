@@ -1,14 +1,7 @@
-import { ArrowUp, Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 import { ROOMS } from '../data/designs';
 import { scrollToSection } from '../lib/scroll';
 import { NAV_LINKS } from './Navbar';
-
-const SOCIALS = [
-  { label: 'Instagram', href: 'https://www.instagram.com/', Icon: Instagram },
-  { label: 'Facebook', href: 'https://www.facebook.com/', Icon: Facebook },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/', Icon: Linkedin },
-  { label: 'YouTube', href: 'https://www.youtube.com/', Icon: Youtube },
-];
 
 export default function Footer({ onSelectRoom }) {
   const go = (e, href) => {
@@ -25,24 +18,9 @@ export default function Footer({ onSelectRoom }) {
               HOMORA
             </a>
             <p className="mt-6 max-w-[34ch] text-[15px] leading-[1.7] text-ivory/70">
-              Imagine Your Space. Design Your Lifestyle. A curated home for interior inspiration, from a single
-              reading corner to a whole house.
+              Imagine Your Space. Design Your Lifestyle. An interior design inspiration portfolio exploring rooms,
+              materials, and design aesthetics.
             </p>
-            <ul className="mt-8 flex gap-2">
-              {SOCIALS.map(({ label, href, Icon }) => (
-                <li key={label}>
-                  <a
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`HOMORA on ${label} (opens in a new tab)`}
-                    className="icon-btn border border-ivory/20 hover:border-ivory hover:bg-ivory hover:text-charcoal"
-                  >
-                    <Icon size={17} strokeWidth={1.5} />
-                  </a>
-                </li>
-              ))}
-            </ul>
           </div>
 
           <nav aria-label="Footer" className="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:col-span-8">
@@ -78,16 +56,10 @@ export default function Footer({ onSelectRoom }) {
               </ul>
             </div>
             <div className="col-span-2 sm:col-span-1">
-              <h3 className="text-[13px] text-ivory/50">Contact</h3>
-              <address className="mt-5 space-y-3 text-[15px] not-italic text-ivory/85">
-                <p>hello@homora.example</p>
-                <p>+00 (0) 000 000 000</p>
-                <p>
-                  Studio address
-                  <br />
-                  City, Country
-                </p>
-              </address>
+              <h3 className="text-[13px] text-ivory/50">About</h3>
+              <p className="mt-5 text-[15px] leading-[1.7] text-ivory/70">
+                A frontend portfolio project showcasing interior design concepts, custom palettes, and responsive layouts.
+              </p>
             </div>
           </nav>
         </div>

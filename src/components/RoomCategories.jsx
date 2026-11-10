@@ -45,7 +45,7 @@ export default function RoomCategories({ onExploreRoom }) {
         <SectionHeading
           id="explore-title"
           title="Explore Spaces That Inspire"
-          intro="Start with the room you live in most. Each space opens a curated set of designs you can filter, save and study in detail."
+          intro="Browse spaces by room to explore layouts, lighting and materials. Select any room to jump straight into matching design concepts."
         />
 
         <div className="mt-14 grid grid-cols-1 gap-x-6 gap-y-14 md:mt-20 md:grid-cols-12 md:gap-x-8 lg:gap-x-12">
